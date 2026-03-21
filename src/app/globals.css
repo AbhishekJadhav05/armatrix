@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────
+   Custom Properties — Armatrix Design System
+   ─────────────────────────────────────────────── */
+
+:root {
+  /* Legacy vars for backwards compatibility with any remaining css */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-elevated: #1A1A1A;
+  --bg-border: #242424;
+  --bg-hover: #1f1f1f;
+
+  --text-primary: #E5E2E1;
+  --text-secondary: #C7C8AE;
+  --text-muted: #8A8A84;
+
+  --accent: #E8FF47;
+  --accent-glow: rgba(232, 255, 71, 0.12);
+  --accent-glow-lg: rgba(232, 255, 71, 0.06);
+
+  --font-display: var(--font-syne);
+}
+
+/* ───────────────────────────────────────────────
+   Global Resets & Base Styles
+   ─────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+  width: 0;
+  background: transparent;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #E5E2E1;
+  font-family: var(--font-body), sans-serif;
+}
+
+*:focus-visible {
+  outline: 1px solid theme('colors.primary');
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+}
+
+/* Overriding radius to force zero-radius policy */
+* { border-radius: 0 !important; }
+
+/* ───────────────────────────────────────────────
+   Reference HTML Patterns
+   ─────────────────────────────────────────────── */
+
+.dot-grid {
+  background-image: radial-gradient(#242424 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.joint-marker {
+  width: 4px;
+  height: 4px;
+  background-color: theme('colors.primary');
+}
+
+@keyframes pulse-primary {
+  0% { box-shadow: 0 0 0 0 rgba(232, 255, 71, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(232, 255, 71, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 255, 71, 0); }
+}
+
+.snake-head-pulse {
+  animation: pulse-primary 2s infinite;
+}
+
+/* Mechanical Shutter Animation Classes */
+.shutter-panel {
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.founder-card-dock {
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.founder-card-dock.docked {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.divider-slide {
+  transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+/* ───────────────────────────────────────────────
+   Skeleton Shimmer
+   ─────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
