@@ -4,11 +4,7 @@ from models import TeamMember
 
 def _photo(name: str) -> str:
     encoded = name.replace(" ", "+")
-    return (
-        f"https://ui-avatars.com/api/?name={encoded}"
-        "&background=1A1A1A&color=E8FF47&size=400"
-        "&bold=true&font-size=0.33&format=png"
-    )
+    return f"https://robohash.org/{encoded}?set=set4&bgset=bg2&size=400x400"
 
 
 SEED_MEMBERS: list[TeamMember] = [

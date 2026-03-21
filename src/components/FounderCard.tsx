@@ -41,13 +41,13 @@ export default function FounderCard({
       style={{ transitionDelay: `${(index + 1) * 100}ms` }}
     >
       {/* Photo Container */}
-      <div className="w-24 h-24 mb-6 bg-surface-container-lowest border border-outline-variant p-2 overflow-hidden">
+      <div className="w-28 h-28 mb-6 bg-surface-container-lowest border border-outline-variant p-2 overflow-hidden">
         <div className="relative w-full h-full">
           <Image
             src={member.photo_url}
             alt={member.name}
             fill
-            sizes="96px"
+            sizes="112px"
             className="grayscale group-hover:grayscale-0 transition-all duration-300"
             style={{ objectFit: "cover" }}
           />
