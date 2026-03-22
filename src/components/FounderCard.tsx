@@ -48,7 +48,7 @@ export default function FounderCard({
             alt={member.name}
             fill
             sizes="112px"
-            className="grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="md:grayscale group-hover:grayscale-0 transition-all duration-300"
             style={{ objectFit: "cover" }}
           />
         </div>
