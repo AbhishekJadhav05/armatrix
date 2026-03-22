@@ -57,7 +57,7 @@ export default function TeamPage(): JSX.Element {
 
       <footer className="w-full py-16 mt-12 border-t border-outline-variant flex flex-col items-center justify-center space-y-6 px-6 md:px-12 bg-surface-dim relative z-20">
         <div className="text-[10px] text-center font-mono tracking-widest text-zinc-500 uppercase px-4">
-          © {new Date().getFullYear()} ARMATRIX PRECISION ROBOTICS. ALL RIGHTS RESERVED.
+          © {new Date().getFullYear()} ARMATRIX TECHNOLOGIES PVT. LTD. ALL RIGHTS RESERVED.
         </div>
       </footer>
 
