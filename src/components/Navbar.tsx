@@ -11,7 +11,7 @@ export default function Navbar({ onAdminToggle }: NavbarProps): JSX.Element {
   const [isAdminHovered, setIsAdminHovered] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full h-[56px] z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-[#242424] flex justify-between items-center px-6">
+    <nav className="sticky top-0 w-full h-[56px] z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-[#242424] flex justify-between items-center px-6">
       <a
         href="https://armatrix.in"
         target="_blank"

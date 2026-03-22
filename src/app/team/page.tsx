@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "_components/Navbar";
 import PageHeader from "_components/PageHeader";
@@ -29,6 +29,13 @@ export default function TeamPage(): JSX.Element {
 
   const { isAwake, isChecking } = useApiHealth();
 
+  useEffect(() => {
+    // Auto-retry fetching data if the API just woke up and we previously had an error
+    if (isAwake && error) {
+      void refetch();
+    }
+  }, [isAwake, error, refetch]);
+
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const [adminOpen, setAdminOpen] = useState<boolean>(false);
 
@@ -38,10 +45,12 @@ export default function TeamPage(): JSX.Element {
   return (
     <main className="bg-surface-dim min-h-screen relative">
       <SnakeScrollbar isHidden={adminOpen} />
-      <ApiWakeUp isAwake={isAwake} isChecking={isChecking} />
-      <Navbar onAdminToggle={() => setAdminOpen((v) => !v)} />
+      <div className="flex flex-col relative z-50">
+        <ApiWakeUp isAwake={isAwake} isChecking={isChecking} />
+        <Navbar onAdminToggle={() => setAdminOpen((v) => !v)} />
+      </div>
 
-      <div className="w-full max-w-[1280px] mx-auto relative overflow-hidden pt-[56px]">
+      <div className="w-full max-w-[1280px] mx-auto relative overflow-hidden">
         <PageHeader />
 
         {loading && <LoadingGrid />}
