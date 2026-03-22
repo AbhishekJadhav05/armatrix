@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
 import type { TeamMember } from "_types/team";
 
 interface MemberListItemProps {
@@ -58,20 +59,21 @@ export default function MemberListItem({
       </div>
 
       {/* Actions */}
-      <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+      <div style={{ display: "flex", gap: "6px", flexShrink: 0 }}>
         {!confirming ? (
           <>
             <button
               onClick={() => onEdit(member)}
+              aria-label="Edit member"
               style={{
                 background: "transparent",
                 border: "none",
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                textTransform: "uppercase",
                 color: "var(--text-muted)",
                 cursor: "pointer",
                 transition: "color 0.2s",
+                padding: "4px",
+                display: "flex",
+                alignItems: "center",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "var(--text-primary)";
@@ -80,28 +82,29 @@ export default function MemberListItem({
                 e.currentTarget.style.color = "var(--text-muted)";
               }}
             >
-              Edit
+              <Pencil size={14} />
             </button>
             <button
               onClick={() => setConfirming(true)}
+              aria-label="Delete member"
               style={{
                 background: "transparent",
                 border: "none",
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                textTransform: "uppercase",
-                color: "var(--text-muted)",
+                color: "#FF4747",
                 cursor: "pointer",
-                transition: "color 0.2s",
+                transition: "opacity 0.2s",
+                padding: "4px",
+                display: "flex",
+                alignItems: "center",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#FF4747";
+                e.currentTarget.style.opacity = "0.7";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "var(--text-muted)";
+                e.currentTarget.style.opacity = "1";
               }}
             >
-              Delete
+              <Trash2 size={14} />
             </button>
           </>
         ) : (

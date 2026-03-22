@@ -12,9 +12,15 @@ export default function Navbar({ onAdminToggle }: NavbarProps): JSX.Element {
 
   return (
     <nav className="fixed top-0 w-full h-[56px] z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-[#242424] flex justify-between items-center px-6">
-      <div className="text-xl font-extrabold tracking-tighter text-white font-syne uppercase">
+      <a
+        href="https://armatrix.in"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-xl font-extrabold tracking-tighter text-white font-syne uppercase no-underline hover:text-primary transition-colors duration-200"
+        style={{ textDecoration: "none" }}
+      >
         ARMATRIX
-      </div>
+      </a>
 
       <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
         {/* Admin Toggle */}

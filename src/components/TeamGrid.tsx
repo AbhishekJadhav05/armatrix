@@ -39,7 +39,7 @@ export default function TeamGrid({
   return (
     <section className="py-12 relative z-20">
       {/* Arm Segment Divider */}
-      <div className="flex items-center px-12 mb-12">
+      <div className="flex items-center px-6 md:px-12 mb-12">
         <div className="joint-marker"></div>
         <div className="h-[1px] flex-grow bg-outline-variant relative mx-4">
           <span className="absolute -top-3 left-0 font-mono text-[10px] text-primary tracking-widest">
@@ -55,7 +55,7 @@ export default function TeamGrid({
         counts={counts}
       />
 
-      <div className="px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-outline-variant">
+      <div className="px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1px] bg-outline-variant">
         {displayMembers.map((m) => (
           <MemberCard
             key={m.id}

@@ -42,7 +42,7 @@ export default function TeamPage(): JSX.Element {
       <Navbar onAdminToggle={() => setAdminOpen((v) => !v)} />
 
       <div className="w-full max-w-[1280px] mx-auto relative overflow-hidden pt-[56px]">
-        <PageHeader memberCount={members.length} />
+        <PageHeader />
 
         {loading && <LoadingGrid />}
         {!loading && error && <ErrorState message={error} onRetry={refetch} />}
@@ -55,8 +55,8 @@ export default function TeamPage(): JSX.Element {
         )}
       </div>
 
-      <footer className="w-full py-16 mt-12 border-t border-outline-variant flex flex-col items-center justify-center space-y-6 px-12 bg-surface-dim relative z-20">
-        <div className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
+      <footer className="w-full py-16 mt-12 border-t border-outline-variant flex flex-col items-center justify-center space-y-6 px-6 md:px-12 bg-surface-dim relative z-20">
+        <div className="text-[10px] text-center font-mono tracking-widest text-zinc-500 uppercase px-4">
           © {new Date().getFullYear()} ARMATRIX PRECISION ROBOTICS. ALL RIGHTS RESERVED.
         </div>
       </footer>
